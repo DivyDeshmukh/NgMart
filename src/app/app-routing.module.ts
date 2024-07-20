@@ -1,10 +1,54 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {
+  provideRouter,
+  RouterModule,
+  Routes,
+  withComponentInputBinding,
+} from '@angular/router';
+import { AuthGuard } from './guards/auth-guard.guard';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'shared',
+    loadChildren: () =>
+      import('./shared/shared.module').then((m) => m.SharedModule),
+  },
+  {
+    path: '',
+    loadChildren: () => import('./main/main.module').then((m) => m.MainModule),
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then((m) => m.CartModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./profile/profile.module').then((m) => m.ProfileModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'product',
+    loadChildren: () =>
+      import('./product/product.module').then((m) => m.ProductModule),
+  },
+  {
+    path: 'search',
+    loadChildren: () =>
+      import('./search-page/search-page.module').then(
+        (m) => m.SearchPageModule
+      ),
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [provideRouter(routes, withComponentInputBinding())],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

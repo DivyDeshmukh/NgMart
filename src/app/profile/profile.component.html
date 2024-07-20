@@ -1,0 +1,170 @@
+<div class="container">
+  <aside class="sidebar">
+    <ul>
+      <li><a>Manage My Account</a></li>
+      <ul>
+        <li (click)="changeCurrentTab(link1.innerHTML)">
+          <a
+            #link1
+            [ngStyle]="
+              currentTab === 'My Profile'
+                ? { color: '#FF5A5F' }
+                : { color: '#000' }
+            "
+            >My Profile</a
+          >
+        </li>
+        <li (click)="changeCurrentTab(link2.innerHTML)">
+          <a
+            #link2
+            [ngStyle]="
+              currentTab === 'My Payment Options'
+                ? { color: '#FF5A5F' }
+                : { color: '#000' }
+            "
+            >My Payment Options</a
+          >
+        </li>
+      </ul>
+      <li><a>My Orders</a></li>
+      <ul>
+        <li (click)="changeCurrentTab(link3.innerHTML)">
+          <a
+            #link3
+            [ngStyle]="
+              currentTab === 'See Orders'
+                ? { color: '#FF5A5F' }
+                : { color: '#000' }
+            "
+            >See Orders</a
+          >
+        </li>
+      </ul>
+    </ul>
+  </aside>
+  <div class="profile-content" *ngIf="currentTab === 'My Profile'">
+    <h2>Edit Your Profile</h2>
+    <form
+      #register
+      (ngSubmit)="handleSubmit(register)"
+      [formGroup]="editProfile"
+    >
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input
+          type="text"
+          id="fullName"
+          name="fullName"
+          formControlName="fullName"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" formControlName="email" />
+      </div>
+      <div class="form-group">
+        <label for="username">username</label>
+        <input
+          type="text"
+          id="Username"
+          name="username"
+          formControlName="username"
+        />
+      </div>
+      <h3>Password Changes</h3>
+      <div class="form-group">
+        <label for="currentPassword">Current Password</label>
+        <input
+          type="password"
+          id="currentPassword"
+          name="currentPassword"
+          formControlName="password"
+        />
+      </div>
+      <div class="form-group">
+        <label for="newPassword">New Password</label>
+        <input
+          type="password"
+          id="newPassword"
+          name="newPassword"
+          formControlName="newPassword"
+        />
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm New Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          formControlName="confirmPassword"
+        />
+      </div>
+      <div class="form-actions">
+        <button type="button" class="cancel-button">Cancel</button>
+        <button type="submit" class="save-button">Save Changes</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="payment-content" *ngIf="currentTab === 'My Payment Options'">
+    <h2>My Payment Options</h2>
+    <div class="payment-method">
+      <h3>Credit/Debit Card</h3>
+      <form>
+        <div class="form-group">
+          <label for="cardNumber">Card Number</label>
+          <input type="text" id="cardNumber" name="cardNumber" />
+        </div>
+        <div class="form-group">
+          <label for="cardName">Name on Card</label>
+          <input type="text" id="cardName" name="cardName" />
+        </div>
+        <div class="form-group">
+          <label for="expiryDate">Expiry Date</label>
+          <input type="text" id="expiryDate" name="expiryDate" />
+        </div>
+        <div class="form-group">
+          <label for="cvv">CVV</label>
+          <input type="text" id="cvv" name="cvv" />
+        </div>
+        <div class="form-actions">
+          <button type="button" class="cancel-button">Cancel</button>
+          <button type="submit" class="save-button">Save</button>
+        </div>
+      </form>
+    </div>
+    <div class="payment-method">
+      <h3>PayPal</h3>
+      <button class="connect-paypal">Connect PayPal</button>
+    </div>
+  </div>
+
+  <div class="orders-content" *ngIf="currentTab === 'See Orders'">
+    <h2>My Orders</h2>
+    <div class="order" *ngFor="let order of orders">
+      <div class="order-header">
+        <span class="order-id" style="text-align: center"
+          >Order ID: {{ order.id }}</span
+        >
+      </div>
+      <div class="order-details">
+        <div class="order-item">
+          <div id="img">
+            <img
+              [src]="order.image"
+              alt="{{ order.title }}"
+              class="order-item-image"
+            />
+          </div>
+          <div class="order-item-info">
+            <h3>{{ order.title }}</h3>
+            <p>ID: {{ order.id }}</p>
+            <p>Price: {{ order.price }}$</p>
+            <p>Quantity: {{ order.quantity }}</p>
+            <p>Total Price: {{ order.quantity * order.price }}$</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

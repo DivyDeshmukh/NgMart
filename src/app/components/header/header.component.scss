@@ -1,0 +1,155 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  position: relative;
+  height: 70px;
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 1.5rem;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #28a745;
+      }
+    }
+  }
+
+  .menu-icon {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    i {
+      color: #fff;
+    }
+  }
+
+  .mobile-nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+    text-align: center;
+    z-index: 99;
+
+    a {
+      padding: 0.75rem 0;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #28a745;
+      }
+    }
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  .logout {
+    cursor: pointer;
+  }
+
+  /* Styling for the select element */
+  #language-select {
+    width: 100px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  /* Custom arrow for the select element */
+  #language-select {
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20292.4%20492.8%27%3E%3Cpath%20fill%3D%27%23333%27%20d%3D%27M287%20121.6L166.9%20241.5c-4.5%204.5-10.6%206.9-16.9%206.9s-12.4-2.5-16.9-6.9L5.4%20121.6C1.9%20118%200%20113.5%200%20108.8s1.9-9.2%205.4-12.8l14.1-14.1c7.1-7.1%2018.6-7.1%2025.7%200L146%20183.3l100.8-100.8c7.1-7.1%2018.6-7.1%2025.7%200l14.1%2014.1c3.5%203.5%205.4%208%205.4%2012.8s-1.9%209.2-5.4%2012.8z%27/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 10px;
+  }
+
+  /* Remove default arrow in IE */
+  #language-select::-ms-expand {
+    display: none;
+  }
+
+  /* Styling for the dropdown options */
+  #language-select option {
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+  }
+
+  /* Custom dropdown styling */
+  #language-select option:hover,
+  #language-select option:focus {
+    background-color: #f0f0f0;
+    color: #000;
+  }
+
+  /* Dropdown list styling (only applies in some browsers) */
+  #language-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  /* Styling the entire dropdown container */
+  select::-ms-expand {
+    display: none;
+  }
+
+  select {
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .menu-icon {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<nav class="header">
+  <div class="logo">
+    <a routerLink="/">NgMart</a>
+  </div>
+  <div class="nav-links">
+    <select
+      id="language-select"
+      name="language"
+      [(ngModel)]="languageCode"
+      (change)="changeLang()"
+    >
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      <option value="fr">French</option>
+    </select>
+
+    <ng-container *ngFor="let item of navItems; let i = index">
+      <a
+        *ngIf="item.active"
+        [routerLink]="item.slug"
+        [ngStyle]="
+          currentPath == item.name.toLowerCase() && userInfo?.authStatus
+            ? { color: '#28a745' }
+            : item.name === 'Home' && currentPath == ''
+            ? { color: '#28a745' }
+            : {}
+        "
+        >{{ item.name }}</a
+      >
+    </ng-container>
+    <a *ngIf="userInfo?.authStatus" (click)="logout()" class="logout">Logout</a>
+  </div>
+  <div class="menu-icon" (click)="toggleMenu()">
+    <i class="ri-menu-line"></i>
+  </div>
+  <div class="mobile-nav-links" [ngClass]="{ active: menuActive }">
+    <select
+      id="language-select"
+      name="language"
+      [(ngModel)]="languageCode"
+      (change)="changeLang()"
+    >
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      <option value="fr">French</option>
+    </select>
+    <ng-container *ngFor="let item of navItems; let i = index">
+      <a *ngIf="item.active" [routerLink]="item.slug" (click)="closeMenu()">{{
+        item.name
+      }}</a>
+    </ng-container>
+    <a (click)="logout()" *ngIf="userInfo?.authStatus" class="logout">Logout</a>
+  </div>
+</nav>

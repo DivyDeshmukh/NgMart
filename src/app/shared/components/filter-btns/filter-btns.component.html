@@ -1,0 +1,21 @@
+<div id="filter-btns" *ngIf="categories1.length !== 0">
+  <button
+    *ngFor="let category of categories1"
+    (click)="setActiveAdv1(category)"
+    [ngStyle]="activeAdv == category ? { backgroundColor: '#2db17e' } : {}"
+  >
+    {{ category.slice(0, 1).toUpperCase()
+    }}{{ category.slice(1, category.length).toLowerCase() }}
+  </button>
+</div>
+<div id="filter-btns" *ngIf="categories2.length !== 0">
+  <button
+    *ngFor="let category of categories2"
+    (click)="setActiveCat(category.toLowerCase())"
+    [ngStyle]="
+      activeCat == category.toLowerCase() ? { backgroundColor: '#2db17e' } : {}
+    "
+  >
+    {{ category }}
+  </button>
+</div>

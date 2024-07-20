@@ -1,0 +1,51 @@
+<div class="cart-container">
+  <div class="breadcrumb"></div>
+
+  <table class="cart-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="cartItems.length !== 0; else elseBlock">
+        <tr *ngFor="let item of cartItems">
+          <td>{{ item.title }}</td>
+          <td>${{ item.price }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>${{ item.price * item.quantity }}</td>
+          <td style="display: flex; justify-content: center">
+            <button class="remove-item" (click)="removeItem(item.id)">
+              remove item
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+      <ng-template #elseBlock>
+        <h4 style="text-align: center; margin-top: 20px">
+          No Items present in the cart
+        </h4>
+      </ng-template>
+    </tbody>
+  </table>
+
+  <div class="coupon-container">
+    <input type="text" placeholder="Coupon Code" />
+    <button class="apply-coupon">Apply Coupon</button>
+  </div>
+
+  <div class="cart-total">
+    <p>Subtotal: $ {{ subTotal?.toFixed(3) }}</p>
+    <p>Shipping: Free</p>
+    <p>Total: $ {{ total?.toFixed(3) }}</p>
+    <div id="btns">
+      <button class="checkout" (click)="clearCart()">Clear Cart</button>
+      <button class="checkout" routerLink="/cart/checkout">
+        Process to Checkout
+      </button>
+    </div>
+  </div>
+</div>

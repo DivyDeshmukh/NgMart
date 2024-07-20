@@ -1,0 +1,34 @@
+<div class="product-grid" *ngIf="products.length !== 0; else elseBlock">
+  <div
+    *ngFor="let prod of products; let i = index"
+    class="product-card"
+    [routerLink]="'/product/' + prod.id"
+  >
+    <img [src]="prod.image" [alt]="prod.title" class="product-image" />
+    <div class="product-details">
+      <h3 class="product-title">{{ prod.title }}</h3>
+      <p class="product-price">USD {{ prod.price }}</p>
+      <div class="product-rating">
+        <span class="rating-value">{{ prod.rating.rate }} 🌟 rating / 5</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #elseBlock>
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 40px;
+    "
+  >
+    <div class="loader">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+  </div>
+</ng-template>

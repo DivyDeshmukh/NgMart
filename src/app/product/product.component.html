@@ -1,0 +1,92 @@
+<div class="product-detail">
+  <div class="product-header">
+    <div class="back-button" routerLink="/">
+      <i class="fas fa-arrow-left"></i>
+    </div>
+    <a class="cart-button" routerLink="/cart">
+      <i class="fas fa-shopping-cart"></i> {{ cartItemsNum }}
+    </a>
+  </div>
+
+  <div class="product-info">
+    <div class="price">Original Price: {{ product?.price }} $</div>
+    <div class="category">Category: {{ product?.category?.toUpperCase() }}</div>
+  </div>
+
+  <div class="product-tabs">
+    <button
+      [ngClass]="activeTab == 'Overview' ? 'active' : {}"
+      (click)="setActiveTab('Overview')"
+    >
+      Overview
+    </button>
+    <button
+      [ngClass]="activeTab == 'Features' ? 'active' : {}"
+      (click)="setActiveTab('Features')"
+    >
+      Features
+    </button>
+    <button
+      [ngClass]="activeTab == 'Specifications' ? 'active' : {}"
+      (click)="setActiveTab('Specifications')"
+    >
+      Specifications
+    </button>
+  </div>
+
+  <div class="product-content" *ngIf="activeTab == 'Overview'">
+    <div class="feature">
+      <h2>{{ product?.title }}</h2>
+      <div class="infoBlock">
+        <div id="img">
+          <img src="{{ product?.image }}" alt="APTX HD WIRELESS AUDIO" />
+        </div>
+        <div id="text-info">
+          <div>
+            <h4>Category:</h4>
+            <h4>{{ product?.category?.toUpperCase() }}</h4>
+          </div>
+          <div id="quan-price">
+            <div id="input">
+              <label><h4>Quantity:</h4> </label>
+              <input
+                type="number"
+                [(ngModel)]="prodQuantity"
+                value="prodQuantity"
+                min="1"
+                (change)="handleQuantityChange()"
+              />
+            </div>
+            <h4>Price: {{ prodPrice }} $</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="activeTab == 'Features'" class="features-tab">
+    <h2>{{ product?.title }}</h2>
+    <p>
+      {{ product?.description }}
+    </p>
+    <p><strong>Total Price:</strong> {{ product?.price }}$</p>
+    <p><strong>Quantity:</strong> {{ product?.quantity }}</p>
+  </div>
+  <div *ngIf="activeTab == 'Specifications'" class="specifications-tab">
+    <h2>Specifications</h2>
+    <ul>
+      <li><strong>Brand:</strong> Example Brand</li>
+      <li><strong>Model:</strong> XYZ1234</li>
+      <li><strong>Dimensions:</strong> 10 x 5 x 3 inches</li>
+      <li><strong>Weight:</strong> 1.5 kg</li>
+      <li><strong>Material:</strong> High-quality plastic</li>
+      <li><strong>Color:</strong> Black</li>
+      <li><strong>Warranty:</strong> 1 year</li>
+      <li><strong>Manufacturer:</strong> Example Manufacturer</li>
+      <li><strong>Country of Origin:</strong> Made in USA</li>
+    </ul>
+  </div>
+  <button class="add-to-cart" (click)="addToCart()">Add To Cart</button>
+
+  <app-carousel></app-carousel>
+</div>

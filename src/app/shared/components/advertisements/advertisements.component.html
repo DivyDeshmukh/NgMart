@@ -1,0 +1,20 @@
+<div class="advMain">
+  <div *ngFor="let prod of adverts; let index = index">
+    <div class="product" *ngIf="currentAd === prod.category">
+      <div id="img">
+        <img [src]="prod.image" alt="{{ prod.name }}" class="prod-image" />
+      </div>
+      <div class="prod-details">
+        <h3 class="prod-name">{{ prod.name }}</h3>
+      </div>
+      <a class="shop-now" routerLink="/product/{{ prod.id }}">Shop now</a>
+    </div>
+  </div>
+</div>
+
+<!-- /* routerLink: This is a shorthand property for the [routerLink] directive. It's
+used when the route path is a simple string literal, like in older Angular
+versions. [routerLink] (with square brackets): This is the recommended way to
+bind route paths in Angular. It allows for more flexibility because you can use
+property bindings, expressions, or arrays to dynamically construct the route
+path. */ -->

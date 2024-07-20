@@ -1,0 +1,27 @@
+<div class="carousel-container">
+  <h1 style="white-space: nowrap; color: #be6161; font-weight: 700">
+    {{ "more-products" | translate }}...
+  </h1>
+  <div
+    class="carousel-wrapper"
+    #carouselWrapper
+    [ngStyle]="{ transform: 'translateX(-' + currentIndex * 100 + '%)' }"
+  >
+    <div class="carousel">
+      <div class="carousel-item" *ngFor="let item of carouselItems">
+        <div id="img">
+          <img [src]="item.image" alt="{{ item.title }}" />
+        </div>
+        <div class="carousel-item-details">
+          <h5>{{ item.title }}</h5>
+          <p>${{ item.price }}</p>
+          <button [routerLink]="'/product/' + item.id" class="see-details">
+            {{ "see-details" | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-button prev" (click)="prev()">&#10094;</button>
+  <button class="carousel-button next" (click)="next()">&#10095;</button>
+</div>

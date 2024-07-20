@@ -1,0 +1,28 @@
+#filter-btns {
+  //   background: red;
+  padding: 2px;
+  padding-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  // overflow-x: auto;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+#filter-btns button {
+  padding: 8px 16px;
+  border-radius: 15px;
+  border: none;
+  background: #0acf83;
+  color: white;
+  font-weight: 700;
+}
+
+#filter-btns button:hover {
+  background: #2db17e;
+  scale: 1.05;
+  cursor: pointer;
+}

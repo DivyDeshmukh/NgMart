@@ -1,0 +1,133 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh);
+  width: 100vw;
+  color: #fff;
+  position: relative;
+
+  .overlay {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("https://img.freepik.com/premium-photo/beautiful-girl-with-shopping-bags-looking-camera-smiling-while-doing-shopping-mall_217236-1391.jpg")
+        no-repeat center center/cover;
+    position: absolute;
+    z-index: 0;
+  }
+
+  .login-container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: absolute;
+    z-index: 9;
+
+    .login-header {
+      margin-bottom: 1.5rem;
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #ccc;
+      }
+    }
+
+    .login-form {
+      .form-group {
+        margin-bottom: 1rem;
+
+        .form-control {
+          width: 100%;
+          padding: 0.75rem;
+          border: none;
+          border-radius: 4px;
+          background: #fff;
+          color: #333;
+        }
+      }
+
+      .forgot-password {
+        display: block;
+        text-align: right;
+        margin-bottom: 1.5rem;
+        color: #ccc;
+        text-decoration: none;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+
+      .login-button {
+        width: 100%;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 4px;
+        background-color: #28a745;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #218838;
+        }
+      }
+    }
+
+    .signup-link {
+      margin-top: 1.5rem;
+
+      a {
+        color: #28a745;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .signup-link p {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    padding: 1.5rem;
+  }
+
+  .login-header {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+    }
+  }
+
+  .login-form {
+    .form-group {
+      .form-control {
+        padding: 0.5rem;
+      }
+    }
+
+    .login-button {
+      padding: 0.5rem;
+    }
+  }
+}

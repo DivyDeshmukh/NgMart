@@ -1,0 +1,13 @@
+<div class="main">
+  <div class="top">
+    <h4>{{ "greeting" | translate }}, {{ userInfo.userData?.fullName }}</h4>
+    <h1>{{ "ques1" | translate }}</h1>
+  </div>
+  <app-search></app-search>
+  <div id="content">
+    <app-filter-btns [categories1]="catogoriesList1"></app-filter-btns>
+    <app-advertisements></app-advertisements>
+    <app-filter-btns [categories2]="categoriesList2"></app-filter-btns>
+    <app-featured-prods></app-featured-prods>
+  </div>
+</div>

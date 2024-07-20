@@ -1,0 +1,90 @@
+<div class="checkout-container">
+  <div class="billing-details">
+    <h2>Billing Details</h2>
+    <form>
+      <div class="form-group">
+        <label for="firstName">First Name*</label>
+        <input type="text" id="firstName" required />
+      </div>
+      <div class="form-group">
+        <label for="companyName">Company Name</label>
+        <input type="text" id="companyName" />
+      </div>
+      <div class="form-group">
+        <label for="streetAddress">Street Address*</label>
+        <input type="text" id="streetAddress" required />
+      </div>
+      <div class="form-group">
+        <label for="apartment">Apartment, floor, etc. (optional)</label>
+        <input type="text" id="apartment" />
+      </div>
+      <div class="form-group">
+        <label for="townCity">Town/City*</label>
+        <input type="text" id="townCity" required />
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number*</label>
+        <input type="text" id="phoneNumber" required />
+      </div>
+      <div class="form-group">
+        <label for="emailAddress">Email Address*</label>
+        <input type="email" id="emailAddress" required />
+      </div>
+      <div class="form-group">
+        <input type="checkbox" id="saveInfo" />
+        <label for="saveInfo"
+          >Save this information for faster check-out next time</label
+        >
+      </div>
+    </form>
+  </div>
+
+  <div class="order-summary">
+    <h2>Order Summary</h2>
+    <div class="order-items">
+      <div class="order-item" *ngFor="let item of cartItems">
+        <span>{{ item.title }}</span>
+        <span>${{ item.price }}</span>
+      </div>
+    </div>
+    <div class="order-totals">
+      <div class="order-total">
+        <span>Subtotal:</span>
+        <span>$ {{ subTotal }}</span>
+      </div>
+      <div class="order-total">
+        <span>Shipping:</span>
+        <span>Free</span>
+      </div>
+      <div class="order-total">
+        <span>Total:</span>
+        <!-- <span>$ {{ total }}</span> -->
+      </div>
+    </div>
+    <div class="payment-methods">
+      <label>
+        <input type="radio" name="paymentMethod" value="bank" checked />
+        Bank
+      </label>
+      <label>
+        <input type="radio" name="paymentMethod" value="cash" />
+        Cash on delivery
+      </label>
+      <div class="payment-icons">
+        <img src="path/to/visa.png" alt="Visa" />
+        <img src="path/to/mastercard.png" alt="Mastercard" />
+        <img src="path/to/amex.png" alt="Amex" />
+      </div>
+    </div>
+    <div class="coupon-container">
+      <input type="text" placeholder="Coupon Code" />
+      <button class="apply-coupon">Apply Coupon</button>
+    </div>
+    <button class="place-order" (click)="placeOrder()">Place Order</button>
+  </div>
+</div>
+<!-- // add product reviews in the below part of the product-detail page carousel or
+slider. // in search, add carousel also of products, and debouncing // 
+to learn:- routing in angular, authgrad, i18n, // integrate razorpay 
+add filter for products also in home. cartItems options
+-->

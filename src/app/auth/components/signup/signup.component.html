@@ -1,0 +1,62 @@
+<div class="signup-page">
+  <div class="overlay"></div>
+  <div class="signup-container">
+    <div class="signup-header">
+      <h1>Audio</h1>
+      <p>It's modular and designed to last</p>
+    </div>
+    <form
+      #register
+      (ngSubmit)="onSubmit(register)"
+      [formGroup]="signupForm"
+      class="signup-form"
+    >
+      <div class="form-group">
+        <input
+          type="text"
+          formControlName="username"
+          placeholder="Username"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Email"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          formControlName="fullName"
+          placeholder="Full Name"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Password"
+          class="form-control"
+          required
+        />
+      </div>
+      <button type="submit" class="signup-button">
+        <span *ngIf="notSigned">Sign Up</span>
+        <span *ngIf="!notSigned">Registering...</span>
+      </button>
+    </form>
+    <div class="login-link">
+      <p>
+        <a routerLink="/"> Home&nbsp;</a>Already have an account?
+        <a routerLink="/auth/login">Login In</a>
+      </p>
+    </div>
+  </div>
+</div>

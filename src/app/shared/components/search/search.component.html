@@ -1,0 +1,31 @@
+<div class="form">
+  <div class="input-container">
+    <i class="icon ri-search-line"></i>
+    <input
+      #searchQuery
+      type="text"
+      placeholder="Search headphone"
+      (input)="getSearchResults(searchQuery.value)"
+    />
+  </div>
+  <div
+    class="search-results"
+    *ngIf="searchResults.length > 0 && searchQuery.value.length > 0"
+  >
+    <div class="result" *ngFor="let result of searchResults">
+      <a [routerLink]="'/product/' + result.id">
+        {{ result.title }}
+      </a>
+    </div>
+  </div>
+  <ng-template
+    class="search-results"
+    *ngIf="searchResults.length === 0 && searchQuery.value.length > 0"
+  >
+    <div class="search-results" style="padding: 20px; font-size: 15px">
+      <p>No Results Found</p>
+    </div>
+  </ng-template>
+</div>
+
+<!-- The (input) event triggers every time the value of the input changes, while the (change) event triggers only when the input loses focus. -->

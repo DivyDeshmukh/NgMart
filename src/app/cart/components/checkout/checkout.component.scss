@@ -1,0 +1,100 @@
+.checkout-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.billing-details,
+.order-summary {
+  flex: 1;
+  padding: 20px;
+}
+
+.billing-details h2,
+.order-summary h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.form-group input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.order-summary .order-items,
+.order-summary .order-totals {
+  margin-bottom: 20px;
+}
+
+.order-item,
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.payment-methods {
+  margin-bottom: 20px;
+}
+
+.payment-methods label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.payment-methods .payment-icons img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.coupon-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.coupon-container input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.coupon-container button {
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.coupon-container button:hover {
+  background: #d47a77;
+}
+
+.place-order {
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.place-order:hover {
+  background: #d47a77;
+}

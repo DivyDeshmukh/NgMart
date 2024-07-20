@@ -1,0 +1,24 @@
+.main {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100vw;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5px;
+  padding: 0 50px;
+  justify-content: start;
+  align-items: start;
+}
+
+#content {
+  background: #f6f6f6;
+  width: 100vw;
+  border-radius: 15px;
+  margin-top: 12.5px;
+  padding: 20px 50px;
+}
