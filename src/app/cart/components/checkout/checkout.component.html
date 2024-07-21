@@ -1,4 +1,4 @@
-<div class="checkout-container">
+<div class="checkout-container" *ngIf="!isOrderPlaced">
   <div class="billing-details">
     <h2>Billing Details</h2>
     <form>
@@ -58,7 +58,7 @@
       </div>
       <div class="order-total">
         <span>Total:</span>
-        <!-- <span>$ {{ total }}</span> -->
+        <span>$ {{ total }}</span>
       </div>
     </div>
     <div class="payment-methods">
@@ -70,21 +70,28 @@
         <input type="radio" name="paymentMethod" value="cash" />
         Cash on delivery
       </label>
-      <div class="payment-icons">
+      <!-- <div class="payment-icons">
         <img src="path/to/visa.png" alt="Visa" />
         <img src="path/to/mastercard.png" alt="Mastercard" />
         <img src="path/to/amex.png" alt="Amex" />
-      </div>
+      </div> -->
     </div>
     <div class="coupon-container">
       <input type="text" placeholder="Coupon Code" />
       <button class="apply-coupon">Apply Coupon</button>
     </div>
-    <button class="place-order" (click)="placeOrder()">Place Order</button>
+    <button class="place-order" (click)="initiatePayment()">Place Order</button>
   </div>
 </div>
-<!-- // add product reviews in the below part of the product-detail page carousel or
-slider. // in search, add carousel also of products, and debouncing // 
-to learn:- routing in angular, authgrad, i18n, // integrate razorpay 
-add filter for products also in home. cartItems options
--->
+
+<div class="order-confirmation" *ngIf="isOrderPlaced">
+  <div class="content">
+    <img
+      src="https://animated-gif-creator.com/images/01/progress-and-tick-icon-animation-codemyui_29.gif"
+      alt="Order Successful"
+      class="confirmation-image"
+    />
+    <h1>Order Placed Successfully!</h1>
+    <button class="continue-button" routerLink="">Continue Shopping</button>
+  </div>
+</div>

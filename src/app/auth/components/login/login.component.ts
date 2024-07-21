@@ -30,6 +30,8 @@ export class LoginComponent implements OnInit {
       const storedData = localStorage.getItem(
         `${this.loginForm.value.username}`
       );
+      // console.log(storedData);
+
       if (storedData) {
         console.log(storedData, JSON.parse(storedData));
         const userData = JSON.parse(storedData);
@@ -37,8 +39,9 @@ export class LoginComponent implements OnInit {
           loginData.username === userData.username &&
           loginData.password === userData.password
         ) {
-          console.log('login Successfull');
+          // console.log('login Successfull');
           this.userData.updateUserData({ userData, authStatus: true });
+
           this.router.navigateByUrl('');
         }
       }

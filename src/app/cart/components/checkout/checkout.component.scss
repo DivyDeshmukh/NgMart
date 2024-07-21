@@ -1,3 +1,4 @@
+/* Existing Styles */
 .checkout-container {
   display: flex;
   max-width: 1200px;
@@ -97,4 +98,126 @@
 
 .place-order:hover {
   background: #d47a77;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .checkout-container {
+    flex-direction: column;
+  }
+
+  .billing-details,
+  .order-summary {
+    flex: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"] {
+    padding: 8px;
+  }
+
+  .order-summary .order-items,
+  .order-summary .order-totals {
+    margin-bottom: 15px;
+  }
+
+  .order-item,
+  .order-total {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .payment-methods .payment-icons img {
+    width: 30px;
+    margin-right: 5px;
+  }
+
+  .coupon-container {
+    flex-direction: column;
+  }
+
+  .coupon-container input {
+    margin-bottom: 10px;
+  }
+
+  .coupon-container button {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+.order-confirmation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.content {
+  max-width: 600px;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.continue-button {
+  padding: 15px 30px;
+  background-color: #ff5a5f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.continue-button:hover {
+  background-color: #228b22;
+}
+
+@media (max-width: 480px) {
+  .form-group input[type="text"],
+  .form-group input[type="email"] {
+    padding: 6px;
+  }
+
+  .order-item,
+  .order-total {
+    font-size: 14px;
+  }
+
+  .payment-methods .payment-icons img {
+    width: 25px;
+    margin-right: 5px;
+  }
+
+  .coupon-container button {
+    padding: 10px;
+  }
 }

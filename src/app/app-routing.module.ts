@@ -36,6 +36,7 @@ const routes: Routes = [
     path: 'product',
     loadChildren: () =>
       import('./product/product.module').then((m) => m.ProductModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'search',
@@ -43,6 +44,7 @@ const routes: Routes = [
       import('./search-page/search-page.module').then(
         (m) => m.SearchPageModule
       ),
+    canActivate: [AuthGuard],
   },
 ];
 

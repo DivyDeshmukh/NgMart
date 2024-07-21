@@ -1,6 +1,6 @@
 .carousel-container {
   position: relative;
-  width: 550px;
+  width: 100%; /* Full width for responsiveness */
   max-width: 800px; /* Adjust as needed */
   margin: auto;
   overflow: hidden;
@@ -33,27 +33,30 @@
 }
 
 .carousel-item #img {
-  width: 250px;
-  height: 250px;
+  width: 100%; /* Full width for responsiveness */
+  max-width: 300px; /* Adjust as needed */
+  height: auto; /* Adjust height based on image aspect ratio */
   display: flex;
   justify-content: center;
 }
 
 .carousel-item img {
-  width: 200px;
-  height: 250px;
+  width: 100%; /* Full width for responsiveness */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 250px; /* Adjust as needed */
+  max-height: 250px; /* Adjust as needed */
   object-fit: contain;
 }
 
 .carousel-item-details {
   text-align: center;
   padding: 10px;
-  width: 250px;
+  width: 100%; /* Full width for responsiveness */
+  max-width: 300px; /* Adjust as needed */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  //   gap: 7px;
 }
 
 .carousel-item-details h5 {
@@ -89,7 +92,7 @@
 
 .see-details {
   display: block;
-  width: 100%;
+  width: 100%; /* Full width for responsiveness */
   padding: 10px 0;
   background-color: #32cd32;
   color: #fff;
@@ -103,4 +106,53 @@
 
 .see-details:hover {
   background-color: #228b22;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 500px; /* Adjust as needed */
+  }
+
+  .carousel-item #img {
+    max-width: 200px; /* Adjust as needed */
+  }
+
+  .carousel-item img {
+    max-width: 200px; /* Adjust as needed */
+    max-height: 200px; /* Adjust as needed */
+  }
+
+  .carousel-item-details {
+    max-width: 200px; /* Adjust as needed */
+  }
+
+  .carousel-button {
+    font-size: 1.5em; /* Adjust as needed */
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    height: 400px; /* Adjust as needed */
+  }
+
+  .carousel-item #img {
+    max-width: 150px; /* Adjust as needed */
+  }
+
+  .carousel-item img {
+    max-width: 150px; /* Adjust as needed */
+    max-height: 150px; /* Adjust as needed */
+  }
+
+  .carousel-item-details {
+    max-width: 150px; /* Adjust as needed */
+  }
+
+  .carousel-button {
+    font-size: 1.2em; /* Adjust as needed */
+    padding: 6px;
+  }
 }

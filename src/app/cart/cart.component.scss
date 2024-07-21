@@ -15,10 +15,15 @@
   text-decoration: none;
 }
 
+.cart-table-container {
+  overflow-x: auto; /* Enables horizontal scrolling for small screens */
+  margin: 20px;
+}
+
 .cart-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
+  min-width: 600px; /* Ensures table doesn't shrink too much */
 }
 
 .cart-table th,
@@ -30,6 +35,71 @@
 
 .cart-table th {
   background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.cart-table td {
+  vertical-align: middle;
+}
+
+.actions {
+  text-align: center; /* Center align actions column */
+}
+
+.remove-item {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove-item:hover {
+  background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+  .cart-table-container {
+    margin: 10px;
+  }
+
+  .cart-table th,
+  .cart-table td {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .cart-table td {
+    padding: 6px; /* Adjust padding for smaller screens */
+  }
+
+  .cart-table {
+    min-width: auto; /* Allow table to shrink on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-table-container {
+    margin: 5px;
+  }
+
+  .cart-table th,
+  .cart-table td {
+    font-size: 12px; /* Further adjust font size */
+  }
+
+  .cart-table td {
+    padding: 4px; /* Further adjust padding */
+  }
+
+  .remove-item {
+    font-size: 12px; /* Adjust button font size */
+    padding: 6px 12px; /* Adjust button padding */
+  }
+
+  .cart-table {
+    min-width: 100%; /* Ensure table takes full width */
+  }
 }
 
 .cart-actions {
@@ -52,6 +122,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 7px;
+  gap: 5px;
 }
 
 .coupon-container {

@@ -45,9 +45,19 @@
       <option value="fr">French</option>
     </select>
     <ng-container *ngFor="let item of navItems; let i = index">
-      <a *ngIf="item.active" [routerLink]="item.slug" (click)="closeMenu()">{{
-        item.name
-      }}</a>
+      <a
+        *ngIf="item.active"
+        [routerLink]="item.slug"
+        (click)="closeMenu()"
+        [ngStyle]="
+          currentPath == item.name.toLowerCase() && userInfo?.authStatus
+            ? { color: '#28a745' }
+            : item.name === 'Home' && currentPath == ''
+            ? { color: '#28a745' }
+            : {}
+        "
+        >{{ item.name }}</a
+      >
     </ng-container>
     <a (click)="logout()" *ngIf="userInfo?.authStatus" class="logout">Logout</a>
   </div>

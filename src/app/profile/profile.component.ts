@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Product } from 'src/app/interfaces/products';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { User } from '../interfaces/user';
+import { PaymentService } from '../services/payment-service.service';
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +20,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private store: Store<{ cartItems: { cartItems: Product[] } }>,
-    private userDataService: UserDataService
+    private userDataService: UserDataService,
+    private paymentService: PaymentService
   ) {
     this.store.select('cartItems').subscribe((cartState) => {
       this.orders = cartState.cartItems;
@@ -79,5 +81,9 @@ export class ProfileComponent implements OnInit {
         console.log('Password Incorrect');
       }
     }
+  }
+
+  initiatePayment() {
+    this.paymentService.payNow();
   }
 }

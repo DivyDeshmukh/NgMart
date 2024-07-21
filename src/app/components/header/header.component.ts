@@ -91,7 +91,7 @@ export class HeaderComponent implements OnInit {
 
     if (this.userData.behaviorSubject) {
       this.userData.behaviorSubject.next({ userData: null, authStatus: false });
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/auth/login');
     }
   }
 }

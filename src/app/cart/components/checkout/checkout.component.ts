@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Product } from 'src/app/interfaces/products';
+import { PaymentService } from 'src/app/services/payment-service.service';
 import {
   clearCartFromStorage,
   clearCartItems,
@@ -16,7 +18,13 @@ export class CheckoutComponent {
   subTotal?: number;
   total?: number;
   shipping: number = 0;
-  constructor(private store: Store<{ cartItems: { cartItems: Product[] } }>) {}
+  isOrderPlaced: boolean = false;
+
+  constructor(
+    private store: Store<{ cartItems: { cartItems: Product[] } }>,
+    private paymentService: PaymentService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.store.select('cartItems').subscribe((cartState) => {
@@ -30,7 +38,9 @@ export class CheckoutComponent {
     });
   }
 
-  placeOrder() {
+  initiatePayment() {
+    this.paymentService.payNow();
     this.store.dispatch(clearCartFromStorage({ cartItems: this.cartItems }));
+    this.isOrderPlaced = true;
   }
 }
